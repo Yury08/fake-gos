@@ -156,4 +156,120 @@ a {
 .back-link__icon {
     width: 16px;
     height: 16px;
+}
+
+/* Styles for the error page */
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f9fafb;
+}
+
+.error-page__container {
+    max-width: 600px;
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.error-page__header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.error-page__content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.error-page__icon-container {
+    background-color: #eef2ff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.error-page__icon {
+    color: #0D4CD3;
+    width: 40px;
+    height: 40px;
+}
+
+.error-page__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0B1F33;
+    margin-bottom: 1rem;
+}
+
+.error-page__message {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.error-page__code {
+    background-color: #f3f4f6;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+}
+
+.error-page__code span {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.error-page__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.error-page__button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page__button--primary {
+    background-color: #0D4CD3;
+    color: white;
+    border: none;
+}
+
+.error-page__button--primary:hover {
+    background-color: #0B1F33;
+}
+
+.error-page__button--secondary {
+    background-color: white;
+    color: #0B1F33;
+    border: 1px solid #d1d5db;
+}
+
+.error-page__button--secondary:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
 } 
