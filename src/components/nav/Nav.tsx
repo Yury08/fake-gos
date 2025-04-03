@@ -78,7 +78,7 @@ export default function Nav() {
           </div>
           
           <nav className="burger-menu__nav">
-            <h2>ЮРИЙ К.</h2>
+            <h2>{user ? `${user.firstName.toUpperCase()} ${user.lastName[0].toUpperCase()}.` : 'ЮРИЙ К.'}</h2>
             <Link href="/profile" className="burger-menu__link">
               <span className="burger-menu__icon profile-icon"></span>
               Профиль
