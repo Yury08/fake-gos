@@ -106,11 +106,11 @@ export default function Home() {
                 <div className='container__inner-2'>
                     <div className="info__field-2">
                         <label>Серия и номер паспорта</label>
-                        <p>5764 567489</p>
+                        <p>3721 897312</p>
                     </div>
                      <div className="info__field-2">
                         <label>Выдан</label>
-                        <p>УМВД РОССИИ ПО КУРАГНСКОЙ ОБЛСТИ</p>
+                        <p>УМВД РОССИИ ПО КУРАГНСКОЙ ОБЛАСТИ</p>
                     </div>
                      <div className="info__field-2">
                         <label>Дата выдачи</label>
@@ -118,7 +118,7 @@ export default function Home() {
                     </div>
                      <div className="info__field-2">
                         <label>Код подразделения</label>
-                        <p>002-054</p>
+                        <p>450-002</p>
                     </div>
                 </div>
                 <div className='container__inner-3'>

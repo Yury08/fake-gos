@@ -2,13 +2,41 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import logo from '../../../public/logo.png'
 import './Nav.css'
+
+interface User {
+  id: string
+  firstName: string
+  lastName: string
+  patronymic: string
+  email: string
+  dateOfBirth: string
+  dateIssueOfPassport: string
+}
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [user, setUser] = useState<User | null>(null)
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user')
+    if (userData) {
+      try {
+        const parsedUser = JSON.parse(userData)
+        setUser(parsedUser)
+      } catch (error) {
+        console.error('Ошибка при парсинге данных пользователя:', error)
+      }
+    }
+  }, [])
+
+  const getInitials = () => {
+    if (!user) return 'КЮ'
+    return `${user.lastName[0]}${user.firstName[0]}`.toUpperCase()
+  }
 
   return (
     <>
@@ -27,7 +55,7 @@ export default function Nav() {
     
         <div className='nav__right'>
           <div className="nav__avatar">
-            <span className='nav__avatar-text'>КЮ</span>
+            <span className='nav__avatar-text'>{getInitials()}</span>
           </div>
         </div>
       </div>
