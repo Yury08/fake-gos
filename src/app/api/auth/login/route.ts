@@ -20,6 +20,9 @@ export async function POST(req: NextRequest) {
                 id: user.id, 
                 firstName: user.firstName, 
                 lastName: user.lastName, 
+                patronymic: user.patronymic,
+                dateOfBirth: user.dateOfBirth,
+                dateIssueOfPassport: user.dateIssueOfPassport,
                 email: user.email 
             } 
         }, {status: 200});

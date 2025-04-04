@@ -32,32 +32,23 @@ export default function Home() {
             router.push('/auth')
             return
         }
+        const parsedUser = JSON.parse(userData)
+        setUser(parsedUser)
 
-        try {
-            const parsedUser = JSON.parse(userData)
-            console.log('Распарсенные данные пользователя:', parsedUser)
-            
-            // Проверяем наличие всех необходимых полей
-            const requiredFields = ['id', 'firstName', 'lastName', 'patronymic', 'email', 'dateOfBirth', 'dateIssueOfPassport']
-            const missingFields = requiredFields.filter(field => !parsedUser[field])
-            
-            if (missingFields.length > 0) {
-                console.error('Отсутствуют обязательные поля:', missingFields)
-                localStorage.removeItem('user') // Удаляем некорректные данные
-                router.push('/auth')
-                return
-            }
-
-            setUser(parsedUser)
-        } catch (error) {
-            console.error('Ошибка при парсинге данных пользователя:', error)
-            localStorage.removeItem('user') // Удаляем некорректные данные
-            router.push('/auth')
-        }
     }, [router])
 
     if (!user) {
         return null
+    }
+
+    const fullName = `${user.lastName || ''} ${user.firstName || ''} ${user.patronymic || ''}`.trim()
+
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString)
+        const day = date.getDate().toString().padStart(2, '0')
+        const month = (date.getMonth() + 1).toString().padStart(2, '0')
+        const year = date.getFullYear()
+        return `${day}.${month}.${year}`
     }
 
     return (
@@ -83,7 +74,7 @@ export default function Home() {
             <div className="container__inner">
                 <div className='container__inner-1'>
                     <h2>
-                        <span>{user.lastName.toUpperCase()} {user.firstName.toUpperCase()} {user.patronymic.toUpperCase()}</span>
+                        <span>{fullName.toUpperCase()}</span>
                         <span className='pencil'><Pencil /></span>
                     </h2>
                     <div className='info__field-1'>
@@ -92,7 +83,7 @@ export default function Home() {
                     </div>
                     <div className='info__field-1'>
                         <label>Дата рождения</label>
-                        <p>{user.dateOfBirth}</p>
+                        <p>{formatDate(user.dateOfBirth)}</p>
                     </div>
                     <div className='info__field-1'>
                         <label>Гажданство</label>
@@ -114,7 +105,7 @@ export default function Home() {
                     </div>
                      <div className="info__field-2">
                         <label>Дата выдачи</label>
-                        <p>{user.dateIssueOfPassport}</p>
+                        <p>{formatDate(user.dateIssueOfPassport)}</p>
                     </div>
                      <div className="info__field-2">
                         <label>Код подразделения</label>
