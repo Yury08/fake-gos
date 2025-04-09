@@ -301,4 +301,63 @@
 
 .question__content p:last-child {
     margin-bottom: 0;
-} 
+}
+
+.camera-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.camera-container video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.take-photo-button,
+.close-camera-button {
+    padding: 8px 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.take-photo-button:hover,
+.close-camera-button:hover {
+    background-color: #0052a3;
+}
+
+.preview-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.preview-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.remove-image-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.remove-image-button:hover {
+    background-color: #c82333;
+}
